@@ -11,3 +11,7 @@ Find the model number, speed, and hard drive size for all PCs under $500. Output
 ## #2
 Find printer manufacturers. Output: maker
 > SELECT DISTINCT maker FROM product WHERE type = 'Printer'
+
+## #3
+Find the model number, memory size, and screen sizes for notebook PCs priced over $1,000.
+> SELECT model, ram, screen FROM laptop WHERE price > 1000
