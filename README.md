@@ -15,3 +15,7 @@ Find printer manufacturers. Output: maker
 ## #3
 Find the model number, memory size, and screen sizes for notebook PCs priced over $1,000.
 > SELECT model, ram, screen FROM laptop WHERE price > 1000
+
+## #4
+Find all the entries in the Color Printer table.
+> SELECT * FROM printer WHERE color = 'y'
