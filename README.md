@@ -23,3 +23,7 @@ Find all the entries in the Color Printer table.
 ## #5
 Find the model number, speed and size of PC hard drives that have 12x or 24x CDs and are priced under $600.
 > SELECT model, speed, hd FROM PC WHERE (cd = '12x' OR cd = '24x') AND (price < 600)
+
+## #6
+Find the speeds of such notebooks for each manufacturer that produces notebook PCs with a hard disk volume of at least 10 GB. Output: manufacturer, speed.
+> SELECT DISTINCT product.maker AS Maker, laptop.speed AS speed FROM product INNER JOIN laptop ON product.model = laptop.model WHERE laptop.hd >= 10
