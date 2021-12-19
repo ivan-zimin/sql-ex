@@ -27,3 +27,11 @@ Find the model number, speed and size of PC hard drives that have 12x or 24x CDs
 ## #6
 Find the speeds of such notebooks for each manufacturer that produces notebook PCs with a hard disk volume of at least 10 GB. Output: manufacturer, speed.
 > SELECT DISTINCT product.maker AS Maker, laptop.speed AS speed FROM product INNER JOIN laptop ON product.model = laptop.model WHERE laptop.hd >= 10
+
+## #7
+Find the model numbers and prices of all vendors selling products (of any type) from maker B.
+> SELECT pc.model, pc.price FROM pc INNER JOIN product ON pc.model = product.model WHERE product.maker = 'B'
+> <br /> UNION
+> <br /> SELECT laptop.model, laptop.price FROM laptop INNER JOIN product ON laptop.model = product.model WHERE product.maker = 'B'
+> <br /> UNION
+> <br /> SELECT printer.model, printer.price FROM printer INNER JOIN product ON printer.model = product.model WHERE product.maker = 'B'
