@@ -35,3 +35,7 @@ Find the model numbers and prices of all vendors selling products (of any type) 
 > <br /> SELECT laptop.model, laptop.price FROM laptop INNER JOIN product ON laptop.model = product.model WHERE product.maker = 'B'
 > <br /> UNION
 > <br /> SELECT printer.model, printer.price FROM printer INNER JOIN product ON printer.model = product.model WHERE product.maker = 'B'
+
+## #8
+Find a PC manufacturer that doesn't produces laptops
+> SELECT DISTINCT maker FROM product WHERE type = 'PC' AND maker NOT IN (SELECT maker FROM product WHERE type = 'Laptop')
