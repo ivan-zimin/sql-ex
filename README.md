@@ -39,3 +39,7 @@ Find the model numbers and prices of all vendors selling products (of any type) 
 ## #8
 Find a PC manufacturer that doesn't produces laptops
 > SELECT DISTINCT maker FROM product WHERE type = 'PC' AND maker NOT IN (SELECT maker FROM product WHERE type = 'Laptop')
+
+## #9
+Find PC manufacturers with a processor of at least 450 MHz.
+> SELECT DISTINCT maker FROM product WHERE model IN (SELECT model FROM pc WHERE speed >= 450)
