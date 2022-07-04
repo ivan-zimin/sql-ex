@@ -46,4 +46,8 @@ Find PC manufacturers with a processor of at least 450 MHz.
 
 ## #10
 Find the most expensive printer models.
-> SELECT model, price FROM printer WHERE price IN (SELECT max(price) FROM printer)
+> SELECT model, price FROM printer WHERE price IN (SELECT MAX(price) FROM printer)
+
+## #11
+Find the average PC speed.
+> SELECT AVG(speed) AS avg_speed FROM pc
