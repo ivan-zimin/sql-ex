@@ -51,3 +51,7 @@ Find the most expensive printer models.
 ## #11
 Find the average PC speed.
 > SELECT AVG(speed) AS avg_speed FROM pc
+
+## #12
+Find the average speed of laptops that cost more than $1,000.
+> SELECT AVG(speed) FROM laptop WHERE price > 1000
