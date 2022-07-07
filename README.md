@@ -5,11 +5,11 @@ Database scema:
 ![Computer shop](https://sql-ex.ru/images/computers.gif)
 
 ## #1
-Find the model number, speed, and hard drive size for all PCs under $500. Output: model, speed and hd
+Find the model number, speed, and hard drive size for all PCs under $500. Output: model, speed and hd.
 > SELECT model, speed, hd FROM pc WHERE price < 500
 
 ## #2
-Find printer manufacturers. Output: maker
+Find printer manufacturers. Output: maker.
 > SELECT DISTINCT maker FROM product WHERE type = 'Printer'
 
 ## #3
@@ -55,3 +55,7 @@ Find the average PC speed.
 ## #12
 Find the average speed of laptops that cost more than $1,000.
 > SELECT AVG(speed) FROM laptop WHERE price > 1000
+
+## #13
+Find the average speed of PC manufactured by A.
+> SELECT AVG(speed) FROM pc WHERE model IN (SELECT model FROM product WHERE maker = 'A')
