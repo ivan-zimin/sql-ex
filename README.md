@@ -1,7 +1,7 @@
 # My excercises from sql-ex.ru
 ## Computer shop
 Database scema:
-<br />
+<br/>
 ![Computer shop](https://sql-ex.ru/images/computers.gif)
 
 ## #1
@@ -31,10 +31,10 @@ Find the speeds of such notebooks for each manufacturer that produces notebook P
 ## #7
 Find the model numbers and prices of all vendors selling products (of any type) from maker B.
 > SELECT pc.model, pc.price FROM pc INNER JOIN product ON pc.model = product.model WHERE product.maker = 'B'
-> <br /> UNION
-> <br /> SELECT laptop.model, laptop.price FROM laptop INNER JOIN product ON laptop.model = product.model WHERE product.maker = 'B'
-> <br /> UNION
-> <br /> SELECT printer.model, printer.price FROM printer INNER JOIN product ON printer.model = product.model WHERE product.maker = 'B'
+> <br/> UNION
+> <br/> SELECT laptop.model, laptop.price FROM laptop INNER JOIN product ON laptop.model = product.model WHERE product.maker = 'B'
+> <br/> UNION
+> <br/> SELECT printer.model, printer.price FROM printer INNER JOIN product ON printer.model = product.model WHERE product.maker = 'B'
 
 ## #8
 Find a PC manufacturer that doesn't produces laptops.
@@ -59,3 +59,14 @@ Find the average speed of laptops that cost more than $1,000.
 ## #13
 Find the average speed of PC manufactured by A.
 > SELECT AVG(speed) FROM pc WHERE model IN (SELECT model FROM product WHERE maker = 'A')
+
+
+<br></br>
+## Ships
+Database scema:
+<br/>
+![Ships](https://sql-ex.ru/images/ships.gif)
+
+## #14
+Find the class, name, and country for ships in the Ships table that have at least 10 guns.
+> SELECT s.class, s.name, c.country FROM ships s JOIN classes c ON s.class = c.class WHERE numguns >= 10
