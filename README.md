@@ -60,6 +60,10 @@ Find the average speed of laptops that cost more than $1,000.
 Find the average speed of PC manufactured by A.
 > SELECT AVG(speed) FROM pc WHERE model IN (SELECT model FROM product WHERE maker = 'A')
 
+## #15
+Find hard drive sizes that are the same on two or more PCs. Display: HD
+> SELECT hd FROM pc GROUP BY hd HAVING count(hd) > 1
+
 
 <br></br>
 ## Ships
