@@ -64,6 +64,12 @@ Find the average speed of PC manufactured by A.
 Find hard drive sizes that are the same on two or more PCs. Display: HD
 > SELECT hd FROM pc GROUP BY hd HAVING count(hd) > 1
 
+## #16
+Find pairs of PC models that have the same speed and RAM. On the output, each pair should be shown only once, i.e. (i,j) but not (j,i), Output order: higher model, lower model, speed, and RAM.
+> SELECT DISTINCT a.model, b.model, a.speed, a.ram
+> FROM pc a, pc b
+> WHERE a.speed = b.speed AND a.ram = b.ram AND a.model > b.model
+
 
 <br></br>
 ## Ships
