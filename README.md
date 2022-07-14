@@ -70,6 +70,14 @@ Find pairs of PC models that have the same speed and RAM. On the output, each pa
 > FROM pc a, pc b
 > WHERE a.speed = b.speed AND a.ram = b.ram AND a.model > b.model
 
+## #17
+Find laptop models that are slower than the speed of each of the PCs.
+Output: type, model, speed
+> SELECT DISTINCT product.type, product.model, laptop.speed
+FROM laptop
+JOIN product ON laptop.model = product.model
+WHERE laptop.speed < (SELECT MIN(speed) FROM pc)
+
 
 <br></br>
 ## Ships
