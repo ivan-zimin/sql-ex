@@ -78,6 +78,10 @@ FROM laptop
 JOIN product ON laptop.model = product.model
 WHERE laptop.speed < (SELECT MIN(speed) FROM pc)
 
+## #18
+Find manufacturers of the cheapest color printers. Output: maker, price.
+> SELECT DISTINCT maker, price FROM product JOIN printer ON product.model = printer.model WHERE color = 'y' AND price = (SELECT MIN(price) FROM printer WHERE color = 'y')
+
 
 <br></br>
 ## Ships
