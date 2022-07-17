@@ -82,6 +82,13 @@ WHERE laptop.speed < (SELECT MIN(speed) FROM pc)
 Find manufacturers of the cheapest color printers. Output: maker, price.
 > SELECT DISTINCT maker, price FROM product JOIN printer ON product.model = printer.model WHERE color = 'y' AND price = (SELECT MIN(price) FROM printer WHERE color = 'y')
 
+## #19
+For each manufacturer that has models in the Laptop table, find the average screen size of their notebook PCs.
+Output: maker, average screen size.
+> SELECT p.maker, AVG(l.screen) FROM product p
+INNER JOIN laptop l ON p.model = l.model
+GROUP BY p.maker
+
 
 <br></br>
 ## Ships
