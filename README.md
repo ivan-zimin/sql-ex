@@ -89,6 +89,14 @@ Output: maker, average screen size.
 INNER JOIN laptop l ON p.model = l.model
 GROUP BY p.maker
 
+## #20
+Find manufacturers that make at least three different PC models. Output: Maker, number of PC models.
+> SELECT maker, COUNT(1)
+FROM product
+WHERE type = 'pc'
+GROUP BY maker
+HAVING COUNT(1) >= 3
+
 
 <br></br>
 ## Ships
