@@ -107,3 +107,7 @@ Database scema:
 ## #14
 Find the class, name, and country for ships in the Ships table that have at least 10 guns.
 > SELECT s.class, s.name, c.country FROM ships s JOIN classes c ON s.class = c.class WHERE numguns >= 10
+
+## #31
+Find classes of ships whose guns are at least 16 inches in bore. Output: class and country.
+> SELECT class, country FROM Classes WHERE bore >=16
