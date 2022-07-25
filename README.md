@@ -97,6 +97,12 @@ WHERE type = 'pc'
 GROUP BY maker
 HAVING COUNT(1) >= 3
 
+## #21
+Find the maximum price of PCs produced by each manufacturer that has models in the PC table. Output: maker, maximum price.
+> SELECT maker, MAX(price) FROM product
+INNER JOIN pc ON product.model = pc.model
+GROUP BY maker
+
 
 <br></br>
 ## Ships
