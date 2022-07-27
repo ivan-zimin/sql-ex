@@ -103,6 +103,11 @@ Find the maximum price of PCs produced by each manufacturer that has models in t
 INNER JOIN pc ON product.model = pc.model
 GROUP BY maker
 
+## #22
+For each PC speed that exceeds 600 MHz, determine the average price of a PC with the same speed. Output: speed, average price.
+> SELECT speed, AVG(price) FROM pc
+WHERE speed > 600
+GROUP BY speed
 
 <br></br>
 ## Ships
