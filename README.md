@@ -109,6 +109,19 @@ For each PC speed that exceeds 600 MHz, determine the average price of a PC with
 WHERE speed > 600
 GROUP BY speed
 
+## #23
+Find manufacturers that produce PCs with a speed of at least 750 MHz and PC laptops with a speed of at least 750 MHz.
+Display: Maker
+> SELECT DISTINCT maker
+FROM product
+INNER JOIN pc ON product.model = pc.model
+WHERE speed >= 750
+AND maker IN
+(SELECT maker
+FROM product
+INNER JOIN laptop ON product.model = laptop.model
+WHERE speed >= 750)
+
 <br></br>
 ## Ships
 Database scema:
