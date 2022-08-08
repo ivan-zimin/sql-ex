@@ -135,3 +135,9 @@ Find the class, name, and country for ships in the Ships table that have at leas
 ## #31
 Find classes of ships whose guns are at least 16 inches in bore. Output: class and country.
 > SELECT class, country FROM Classes WHERE bore >=16
+
+## #33
+List the ships sunk in battles in the North Atlantic. Output: ship.
+> SELECT ship FROM outcomes
+INNER JOIN battles ON outcomes.battle = battles.name
+WHERE result = 'sunk' AND battles.name = 'North Atlantic'
