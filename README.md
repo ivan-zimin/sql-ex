@@ -122,6 +122,24 @@ FROM product
 INNER JOIN laptop ON product.model = laptop.model
 WHERE speed >= 750)
 
+## #24
+List the model numbers of any type that have the highest price of all the products in the database.
+> SELECT model FROM (
+SELECT model, price FROM pc
+UNION
+SELECT model, price FROM laptop
+UNION
+SELECT model, price FROM printer
+) t1 WHERE price = (
+SELECT MAX(price) FROM (
+SELECT model, price FROM pc
+UNION
+SELECT model, price FROM laptop
+UNION
+SELECT model, price FROM printer
+) t2
+)
+
 <br></br>
 ## Ships
 Database scema:
