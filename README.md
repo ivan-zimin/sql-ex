@@ -159,3 +159,9 @@ List the ships sunk in battles in the North Atlantic. Output: ship.
 > SELECT ship FROM outcomes
 INNER JOIN battles ON outcomes.battle = battles.name
 WHERE result = 'sunk' AND battles.name = 'North Atlantic'
+
+## #34
+According to the Washington International Treaty from 1922, it is forbidden to build battleships with a displacement more than 35 thousand tons. Show the ships that violated this treaty (only ships with a known launch year should be shown). Output: name.
+> SELECT name FROM ships
+INNER JOIN classes ON ships.class = classes.class
+WHERE displacement > 35000 AND launched >= 1922 AND type = 'bb'
