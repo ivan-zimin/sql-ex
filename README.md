@@ -140,6 +140,13 @@ SELECT model, price FROM printer
 ) t2
 )
 
+## #35
+In the Product table, find models that consist only of numbers or only of Latin letters (A-Z, case insensitive).
+Output: model number, model type.
+> SELECT model, type FROM product
+WHERE UPPER(model) NOT LIKE '%[^A-Z]%'
+OR model NOT LIKE '%[^0-9]%'
+
 <br></br>
 ## Ships
 Database scema:
