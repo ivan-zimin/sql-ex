@@ -172,3 +172,7 @@ According to the Washington International Treaty from 1922, it is forbidden to b
 > SELECT name FROM ships
 INNER JOIN classes ON ships.class = classes.class
 WHERE displacement > 35000 AND launched >= 1922 AND type = 'bb'
+
+## #42
+Find the names of the ships sunk in the battles and the name of the battle in which they were sunk.
+> SELECT ship, battle FROM outcomes WHERE result = 'sunk'
