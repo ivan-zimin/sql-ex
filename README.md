@@ -176,3 +176,12 @@ WHERE displacement > 35000 AND launched >= 1922 AND type = 'bb'
 ## #42
 Find the names of the ships sunk in the battles and the name of the battle in which they were sunk.
 > SELECT ship, battle FROM outcomes WHERE result = 'sunk'
+
+## #43
+Find the battles that took place in years that do not coincide with any of the years of launching ships on the water.
+> SELECT name
+FROM battles
+WHERE year(date) NOT IN
+(SELECT launched
+FROM ships
+WHERE launched IS NOT NULL)
