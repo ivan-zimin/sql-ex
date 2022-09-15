@@ -185,3 +185,9 @@ WHERE year(date) NOT IN
 (SELECT launched
 FROM ships
 WHERE launched IS NOT NULL)
+
+## #44
+Find the names of all ships in the database that begin with the letter R.
+> SELECT name FROM ships WHERE name LIKE 'R%'
+UNION
+SELECT ship FROM outcomes WHERE ship LIKE 'R%'
