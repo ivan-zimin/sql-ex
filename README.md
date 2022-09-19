@@ -191,3 +191,10 @@ Find the names of all ships in the database that begin with the letter R.
 > SELECT name FROM ships WHERE name LIKE 'R%'
 UNION
 SELECT ship FROM outcomes WHERE ship LIKE 'R%'
+
+## #45
+Find the names of all ships in the database that are three or more words long (for example, King George V).
+Assume that words in titles are separated by single spaces, and there are no trailing spaces.
+> SELECT name FROM ships WHERE name LIKE '% % %'
+UNION
+SELECT ship FROM outcomes WHERE ship LIKE '% % %'
