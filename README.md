@@ -140,6 +140,10 @@ SELECT model, price FROM printer
 ) t2
 )
 
+## #25
+Find printer manufacturers that make PCs with the least amount of RAM and the fastest processor among all PCs with the least amount of RAM. Output: Maker.
+> SELECT DISTINCT maker FROM product WHERE maker IN (SELECT maker FROM product WHERE type='printer') AND model IN (SELECT model FROM pc WHERE ram=(SELECT MIN(ram) FROM pc) AND speed=(SELECT MAX(speed) FROM pc WHERE ram=(SELECT MIN(ram) FROM pc)))
+
 ## #35
 In the Product table, find models that consist only of numbers or only of Latin letters (A-Z, case insensitive).
 Output: model number, model type.
