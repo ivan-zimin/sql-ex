@@ -211,3 +211,7 @@ Assume that words in titles are separated by single spaces, and there are no tra
 > SELECT name FROM ships WHERE name LIKE '% % %'
 UNION
 SELECT ship FROM outcomes WHERE ship LIKE '% % %'
+
+## #70
+Укажите сражения, в которых участвовало по меньшей мере три корабля одной и той же страны.
+> SELECT battle, country FROM outcomes LEFT JOIN ships ON outcomes.ship = ships.name LEFT JOIN classes ON ships.class = classes.class WHERE COUNTRY IS NOT NULL GROUP BY country HAVING COUNT(*) > 2
