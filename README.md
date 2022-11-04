@@ -215,3 +215,13 @@ SELECT ship FROM outcomes WHERE ship LIKE '% % %'
 ## #70
 Укажите сражения, в которых участвовало по меньшей мере три корабля одной и той же страны.
 > SELECT battle, country FROM outcomes LEFT JOIN ships ON outcomes.ship = ships.name LEFT JOIN classes ON ships.class = classes.class WHERE COUNTRY IS NOT NULL GROUP BY country HAVING COUNT(*) > 2
+
+<br></br>
+## Аэрофлот
+Схема базы данных:
+<br/>
+![Aeroflot](https://sql-ex.ru/images/aero.gif)
+
+## #63
+Определить имена разных пассажиров, когда-либо летевших на одном и том же месте более одного раза.
+> SELECT name FROM passenger WHERE id_psg IN (SELECT id_psg FROM pass_in_trip GROUP BY id_psg, place HAVING COUNT(*) > 1)
