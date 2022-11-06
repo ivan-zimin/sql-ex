@@ -225,3 +225,8 @@ SELECT ship FROM outcomes WHERE ship LIKE '% % %'
 ## #63
 Определить имена разных пассажиров, когда-либо летевших на одном и том же месте более одного раза.
 > SELECT name FROM passenger WHERE id_psg IN (SELECT id_psg FROM pass_in_trip GROUP BY id_psg, place HAVING COUNT(*) > 1)
+
+## #66
+Для всех дней в интервале с 01/04/2003 по 07/04/2003 определить число рейсов из Rostov.
+Вывод: дата, количество рейсов
+> SELECT date, COUNT(*) qty FROM pass_in_trip WHERE trip_no IN (SELECT trip_no FROM trip WHERE town_from = 'rostov' AND date BETWEEN '2003-04-01' AND '2003-04-07') GROUP BY date
